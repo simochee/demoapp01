@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    output: 'bundle.min.js',
+    output: {
+        filename: 'bundle.min.js',
+    },
     module: {
         rules: [
             {
@@ -27,7 +29,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.tga'],
+        extensions: ['', '.js', '.tga'],
     },
     plugins: [
         new UglifyJSPlugin(),

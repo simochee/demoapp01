@@ -29,7 +29,7 @@ gulp.task('pug', () => {
 
 gulp.task('webpack', () => {
     gulp.src('./src/scripts/entry.js')
-        .pipe(webpack(require('./wenpack.config.js')))
+        .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./docs/js'));
 });
 
@@ -56,8 +56,8 @@ gulp.task('watch', () => {
         browserSync.stream();
     });
     watch(['./src/scripts/**/*'], () => {
-        gulp.start('webpck');
+        gulp.start('webpack');
     });
 });
 
-gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpck']);
+gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack']);
