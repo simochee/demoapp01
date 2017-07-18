@@ -2,6 +2,9 @@
   "name": "demoapp01.v1",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev"
+  },
   "repository": "https://github.com/simochee/demoapp01.git",
   "author": "Ryoya Tamura <simochee@gmail.com>",
   "license": "MIT",
