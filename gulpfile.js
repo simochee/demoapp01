@@ -1,9 +1,11 @@
 const browserSync = require('browser-sync');
+const cssmin = require('gulp-cssmin');
 const cssnext = require('postcss-cssnext');
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const pug = require('gulp-pug');
+const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const stylus = require('gulp-stylus');
 const watch = require('gulp-watch');
@@ -34,7 +36,7 @@ gulp.task('webpack', () => {
 });
 
 gulp.task('stylus', () => {
-    gulp.src('./src/styles/!(_)*.styl')
+    gulp.src('./src/stylus/!(_)*.styl')
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(stylus())
@@ -43,6 +45,10 @@ gulp.task('stylus', () => {
                 browsers: ['last 1 version'],
             }),
         ]))
+        .pipe(cssmin())
+        .pipe(rename({
+            suffix: '.min',
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./docs/css'));
 });

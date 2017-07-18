@@ -25,6 +25,8 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "gulp-cssmin": "^0.2.0",
+    "gulp-rename": "^1.2.2",
     "riot": "^3.6.1"
   }
 }
