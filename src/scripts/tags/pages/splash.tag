@@ -1,3 +1,5 @@
 splash
     .splash
-        .splash-logo: img(src="img/logo.png")
+        .splash-logo: span.ion-aperture
+        .splash-buttons
+            a.button.button-block(href="#/home") さあ、はじめよう！
