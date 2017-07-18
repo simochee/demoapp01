@@ -2,6 +2,7 @@ const browserSync = require('browser-sync');
 const cssmin = require('gulp-cssmin');
 const cssnext = require('postcss-cssnext');
 const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const pug = require('gulp-pug');
@@ -53,6 +54,14 @@ gulp.task('stylus', () => {
         }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./docs/css'));
+});
+
+gulp.task('imagemin', () => {
+    gulp.src('./src/assets/**/*.(png|jpg)', {
+        base: './src/assets',
+    })
+        .pipe(imagemin())
+        .pipe(gulp.dest('./docs'));
 });
 
 gulp.task('watch', () => {
