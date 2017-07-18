@@ -9,11 +9,12 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const stylus = require('gulp-stylus');
 const watch = require('gulp-watch');
-const webpack = require('webpack-stream');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
 
 gulp.task('browsersync', () => {
      browserSync.init(null, {
-         files: ['./docs/!css/**/*'],
+         files: ['./docs/!(css)**/*'],
          notify: false,
          open: false,
          port: process.env.PORT || 43000,
@@ -32,7 +33,7 @@ gulp.task('pug', () => {
 gulp.task('webpack', () => {
     gulp.src('./src/scripts/entry.js')
         .pipe(plumber())
-        .pipe(webpack(require('./webpack.config.js')))
+        .pipe(webpackStream(require('./webpack.config.js'), webpack))
         .pipe(gulp.dest('./docs/js'));
 });
 
@@ -62,9 +63,9 @@ gulp.task('watch', () => {
         gulp.start('stylus');
         browserSync.stream();
     });
-    // watch(['./src/scripts/**/*'], () => {
-    //     gulp.start('webpack');
-    // });
+    watch(['./src/scripts/**/*'], () => {
+        gulp.start('webpack');
+    });
 });
 
-gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus']);
+gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack']);
