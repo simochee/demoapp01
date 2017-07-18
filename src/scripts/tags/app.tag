@@ -1,2 +1,10 @@
 app
-    h1 hello world.
+
+    page
+
+    tabbar
+
+    menu-dialog
+
+    script(type="es6").
+        
