@@ -62,9 +62,9 @@ gulp.task('watch', () => {
         gulp.start('stylus');
         browserSync.stream();
     });
-    watch(['./src/scripts/**/*'], () => {
-        gulp.start('webpack');
-    });
+    // watch(['./src/scripts/**/*'], () => {
+    //     gulp.start('webpack');
+    // });
 });
 
-gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack']);
+gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus']);

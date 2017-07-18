@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "concurrently \"npm run start\" \"npm run webpack\"",
+    "start": "gulp dev",
+    "webpack": "webpack --watch"
   },
   "repository": "https://github.com/simochee/demoapp01.git",
   "author": "Ryoya Tamura <simochee@gmail.com>",
@@ -11,6 +13,7 @@
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "buble-loader": "^0.4.1",
+    "concurrently": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",

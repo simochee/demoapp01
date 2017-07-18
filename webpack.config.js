@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+    entry: './src/scripts/entry.js',
     output: {
         filename: 'bundle.min.js',
     },
@@ -16,6 +17,7 @@ module.exports = {
                         loader: 'riot-tag-loader',
                         options: {
                             debug: true,
+                            template: 'pug',
                         },
                     },
                 ],
@@ -29,7 +31,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['', '.js', '.tga'],
+        extensions: ['.js', '.tag'],
     },
     plugins: [
         new UglifyJSPlugin(),
