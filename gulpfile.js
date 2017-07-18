@@ -57,10 +57,17 @@ gulp.task('stylus', () => {
 });
 
 gulp.task('imagemin', () => {
-    gulp.src('./src/assets/**/*.(png|jpg)', {
+    gulp.src('./src/assets/**/*.png', {
         base: './src/assets',
     })
         .pipe(imagemin())
+        .pipe(gulp.dest('./docs'));
+});
+
+gulp.task('lib', () => {
+    gulp.src('./src/lib/**/*', {
+        base: './src/lib',
+    })
         .pipe(gulp.dest('./docs'));
 });
 
@@ -75,6 +82,12 @@ gulp.task('watch', () => {
     watch(['./src/scripts/**/*'], () => {
         gulp.start('webpack');
     });
+    watch(['./src/assets/**/*.png'], () => {
+        gulp.start('imagemin');
+    });
+    watch(['./src/lib/**/*'], () => {
+        gulp.start('lib');
+    });
 });
 
-gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack']);
+gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack', 'imagemin', 'lib']);
