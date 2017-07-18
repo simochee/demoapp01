@@ -14,7 +14,7 @@ const webpackStream = require('webpack-stream');
 
 gulp.task('browsersync', () => {
      browserSync.init(null, {
-         files: ['./docs/!(css)**/*'],
+         files: ['./docs/**/*'],
          notify: false,
          open: false,
          port: process.env.PORT || 43000,
