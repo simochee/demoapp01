@@ -31,6 +31,7 @@ gulp.task('pug', () => {
 
 gulp.task('webpack', () => {
     gulp.src('./src/scripts/entry.js')
+        .pipe(plumber())
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./docs/js'));
 });
