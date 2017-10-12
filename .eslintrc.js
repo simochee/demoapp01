@@ -47,7 +47,9 @@ module.exports = {
     ],
     "globals": {
         "riot": true,
-        "opts": true
+        "opts": true,
+        "model": true,
+        "YAML": true,
     },
     "parserOptions": {
         "sourceType": "module"

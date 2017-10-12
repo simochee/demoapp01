@@ -1,0 +1,77 @@
+.home
+    &-flash
+        .news
+            background #fff
+            border-bottom 4px solid  $_theme
+            height 40px
+            line-height 40px
+            overflow hidden
+            padding 3px 0 6px
+            position fixed
+            top 0
+            width 100%
+            li
+                color #555
+                float left
+                .datetime
+                    font-weight bold
+                    &::before
+                        content "\f3b3"
+                        font-family Ionicons
+                        margin-right 8px
+                    &::after
+                        content ' | '
+                        color #888
+        .flash-btn
+            background #fff
+            border 2px solid  $_theme
+            border-top-right-radius 8px
+            border-bottom-left-radius 8px
+            color $_theme
+            display block
+            height 40px
+            padding 0 1.2em
+            position absolute
+            line-height 40px
+            right 5px
+            text-decoration none
+            top 42px
+            &:hover
+                background $_theme
+                color #fff
+    &-avator
+        img
+            display block
+            height 100%
+            object-fit contain
+            width 100%
+
+@keyframes twinkle {
+    0% {
+        box-shadow 0 0 4px rgba(darken($_theme, 20%), .4)
+        transform scale(1)
+    }
+    50% {
+        box-shadow 0 0 20px darken($_theme, 20%)
+        transform scale(1.02)
+    }
+    100% {
+        box-shadow 0 0 4px rgba(darken($_theme, 20%), .4)
+        transform scale(1)
+    }
+}
+.friend-list-btn
+    animation twinkle 1.2s ease infinite
+    background-image linear-gradient(to bottom, $_theme 0%, $_theme 50%, darken($_theme, 12%) 51%)
+    bottom 100px
+    border-radius 10px
+    color #fff
+    font-size 20px
+    display block
+    left 5%
+    letter-spacing .2em
+    line-height 50px
+    position fixed
+    text-align center
+    text-decoration none
+    width 90%

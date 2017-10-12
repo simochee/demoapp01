@@ -64,9 +64,9 @@ gulp.task('imagemin', () => {
         .pipe(gulp.dest('./docs'));
 });
 
-gulp.task('lib', () => {
-    gulp.src('./src/lib/**/*', {
-        base: './src/lib',
+gulp.task('static', () => {
+    gulp.src('./src/statics/**/*', {
+        base: './src/statics',
     })
         .pipe(gulp.dest('./docs'));
 });
@@ -85,9 +85,9 @@ gulp.task('watch', () => {
     watch(['./src/assets/**/*.png'], () => {
         gulp.start('imagemin');
     });
-    watch(['./src/lib/**/*'], () => {
-        gulp.start('lib');
+    watch(['./src/statics/**/*'], () => {
+        gulp.start('static');
     });
 });
 
-gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack', 'imagemin', 'lib']);
+gulp.task('dev', ['browsersync', 'watch', 'pug', 'stylus', 'webpack', 'imagemin', 'static']);

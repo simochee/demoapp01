@@ -37,6 +37,7 @@ module.exports = {
         new UglifyJSPlugin(),
         new webpack.ProvidePlugin({
             riot: 'riot',
+            Lockr: 'lockr',
         }),
     ],
     devtool: 'source-map',

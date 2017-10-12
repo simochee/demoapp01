@@ -1,0 +1,14 @@
+{
+    "name": "タイトル未定DEMO",
+    "short_name": "デモ",
+    "icons": [
+        {
+            "src": "./img/icon144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/demoapp01",
+    "display": "standalone",
+    "theme_color": "#ffc928"
+}

@@ -1,6 +1,6 @@
 tabbar
     .tabbar
-        a.tabbar-item(href="#")
+        a.tabbar-item(href="#/home")
             span.icon.ion-ios-home-outline
             span.label home
         a.tabbar-item(href="#")
@@ -9,6 +9,6 @@ tabbar
         a.tabbar-item(href="#")
             span.icon.ion-ios-chatbubble-outline
             span.label Talk
-        a.tabbar-item(href="#")
+        a.tabbar-item(href="#/menu")
             span.icon.ion-ios-keypad-outline
             span.label Menu
